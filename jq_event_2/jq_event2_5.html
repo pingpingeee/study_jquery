@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".menuWrap_1 a").on("click", function () {
+                // $(".menuWrap_1 a").css({ "background-color": "yellow" });
+
+                // 해당 a 요소만 변경
+                $(this).css({ "background-color": "yellow" })
+            });
+
+            $(".menuWrap_2 a").on("click", function () {
+                // 해당 객체의 인덱스를 변수로 저장
+                var idx = $(".menuWrap_2 a").index(this);
+
+                // 인덱스를 클래스에 넣음
+                // $(".idxNum").text(idx);
+
+                // 해당 인덱스만 배경색 적용
+                $(".menuWrap_2 a").eq(idx).css({ "background-color": "red" });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <h2>$(this)</h2>
+    <ul class="menuWrap_1">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+    </ul>
+    <ul class="menuWrap_2">
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+        <li><a href="#">메뉴6</a></li>
+    </ul>
+    <p class="idxNum"></p>
+</body>
+
+</html>
