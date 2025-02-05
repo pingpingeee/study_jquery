@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        .btnWrap {
+            margin-bottom: 10px;
+        }
+
+        .wrap {
+            max-width: 600px;
+            border: 1px solid black;
+        }
+
+        .txt1 {
+            width: 50px;
+            text-align: center;
+            background-color: aqua;
+        }
+    </style>
+    <script>
+        $(function () {
+            var txt1 = $(".txt1");
+            var count = 1;
+
+            $(".btnWrap button").on("click", function () {
+                // txt1.animate({ marginLeft: "+=10%" });
+
+                // 내용1이 애니메이션 중이면 작동 안됨
+                if (!txt1.is(":animated")) {
+                    // go 버튼
+                    if ($(this).hasClass("goBtn")) {
+                        count++;
+                        if (count > 10) {
+                            count = 10;
+                            return;
+                        }
+                        txt1.animate({ marginLeft: "+=10%" });
+                    }
+                    // back 버튼
+                    else {
+
+                        count--;
+                        if (count < 1) {
+                            count = 1;
+                            return;
+                        }
+                        txt1.animate({ marginLeft: "-=10%" });
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p class="btnWrap">
+        <button class="backBtn">Back</button>
+        <button class="goBtn">Go</button>
+    </p>
+    <div class="wrap">
+        <p class="txt1">내용1</p>
+    </div>
+</body>
+
+</html>
