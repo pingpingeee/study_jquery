@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: rgb(252, 240, 219);
+    }
+
+    header {
+        padding: 20px;
+        height: 100px;
+        background-color: rgb(248, 193, 91);
+        text-align: center;
+        color: #fff;
+    }
+
+    .menu {
+        color: #fff;
+        background-color: orange;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .menu li {
+        padding: 10px 15px 10px 15px;
+        display: inline;
+        list-style-type: none;
+    }
+
+    .menu li:hover {
+        background-color: rgb(189, 123, 0);
+        cursor: pointer;
+    }
+
+    form {
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    form p {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 5px;
+    }
+
+    button {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        background-color: rgb(248, 193, 91);
+        border: 1px solid rgb(248, 193, 91);
+        color: white;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    section {
+        display: none;
+    }
+
+    section.active {
+        display: block;
+    }
+</style>
+<script>
+    $(function () {
+        $(".menu ul li").on("click", function (e) {
+            $('section').removeClass('active');
+
+            var target = $(this).attr('class');
+            $('#' + target).addClass('active');
+        });
+    })
+</script>
+
+<body>
+    <header>
+        <h1>상품판매</h1>
+    </header>
+    <div class="menu">
+        <ul>
+            <li class="login">로그인</li>
+            <li class="userinfo">회원정보</li>
+            <li class="item">상품등록</li>
+            <li class="market">점포등록</li>
+        </ul>
+    </div>
+
+    <section class="active" id="login">
+        <form>
+            <h2>로그인</h2>
+            <label>
+                <p>아이디</p>
+                <input type="text" placeholder="아이디를 입력하세요.">
+            </label>
+            <label>
+                <p>비밀번호</p>
+                <input type="password" placeholder="비밀번호를 입력하세요.">
+            </label>
+            <button type="submit">로그인</button>
+        </form>
+    </section>
+
+    <section id="userinfo">
+        <form>
+            <h2>회원정보</h2>
+            <label>
+                <p>이름</p>
+                <input type="text" placeholder="이름을 입력하세요.">
+            </label>
+            <label>
+                <p>이메일</p>
+                <input type="text" placeholder="이메일을 입력하세요.">
+            </label>
+            <label>
+                <p>전화번호</p>
+                <input type="password" placeholder="전화번호를 입력하세요.">
+            </label>
+            <button type="submit">정보수정</button>
+        </form>
+    </section>
+
+    <section id="item">
+        <form>
+            <h2>상품등록</h2>
+            <label>
+                <p>상품명</p>
+                <input type="text" placeholder="상품명을 입력하세요." required>
+            </label>
+            <label>
+                <p>가격</p>
+                <input type="number" placeholder="가격을 입력하세요.">
+            </label>
+            <button type="submit">상품등록</button>
+        </form>
+    </section>
+
+    <section id="market">
+        <form>
+            <h2>점포등록</h2>
+            <label>
+                <p>점포명</p>
+                <input type="text" placeholder="점포명을 입력하세요.">
+            </label>
+            <label>
+                <p>위치</p>
+                <input type="text" placeholder="위치를 입력하세요.">
+            </label>
+            <button type="submit">점포등록</button>
+        </form>
+    </section>
+</body>
+
+</html>
