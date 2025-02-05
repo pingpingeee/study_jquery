@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".btn1").click(function () {
+                // alert("클릭");
+                // $(".btn1").css({ "color": "red" });
+
+                // parent() => p, next() => p의 다음(동생) <p>내용1</p>
+                $(".btn1").parent().next().css({ "color": "red" });
+            });
+
+            // on메소드 => 하나의 이벤트도 등록 가능
+            $(".btn2").on({
+                // "mouseover": function () {
+                //     alert("over");
+                // }
+                // focus => 탭키로 이동해서 선택될 때 이벤트
+                "mouseover focus": function () {
+                    //alert("over");
+                    $(".btn2").parent().next().css({ "color": "green" });
+                },
+                // blur => 탭키로 이동해서 선택을 벗어날 때 이벤트
+                "mouseover blur": function () {
+                    //alert("over");
+                    $(".btn2").parent().next().css({ "color": "aqua" });
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>
+        <button class="btn1">버튼1</button>
+    </p>
+    <p>내용1</p>
+    <p>
+        <button class="btn2">버튼2</button>
+    </p>
+    <p>내용2</p>
+</body>
+
+</html>
